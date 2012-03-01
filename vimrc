@@ -1,4 +1,7 @@
-colorscheme desert  
+" Set colorscheme 
+set t_Co=256        " for proper terminal colors
+colorscheme mustang
+
 set ignorecase      " ignore case when searching
 set number          " show line numbers 
 
