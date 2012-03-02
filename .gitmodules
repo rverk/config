@@ -28,6 +28,6 @@
 [submodule "vim/bundle/snipmate-pig"]
 	path = vim/bundle/snipmate-pig
     url = https://github.com/rverk/snipmate-pig.git
-[submodule "vim/bundle/snipmate-vim"]
-	path = vim/bundle/snipmate-vim
-	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/vim-snipmate"]
+	path = vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
