@@ -27,4 +27,7 @@
 	url = https://github.com/jimf/vim-pep8-text-width.git
 [submodule "vim/bundle/snipmate-pig"]
 	path = vim/bundle/snipmate-pig
-	url = git://github.com/rverk/snipmate-pig.git
+    url = git://github.com/rverk/snipmate-pig.git
+[submodule "vim/bundle/snipmate-vim"]
+	path = vim/bundle/snipmate-vim
+	url = https://github.com/msanders/snipmate.vim.git
