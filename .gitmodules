@@ -1,6 +1,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/tlib_vim.git"]
 	path = vim/bundle/tlib_vim.git
 	url = https://github.com/tomtom/tlib_vim.git
@@ -27,7 +27,7 @@
 	url = https://github.com/jimf/vim-pep8-text-width.git
 [submodule "vim/bundle/snipmate-pig"]
 	path = vim/bundle/snipmate-pig
-    url = git://github.com/rverk/snipmate-pig.git
+    url = https://github.com/rverk/snipmate-pig.git
 [submodule "vim/bundle/snipmate-vim"]
 	path = vim/bundle/snipmate-vim
 	url = https://github.com/msanders/snipmate.vim.git
