@@ -1,0 +1,30 @@
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/tlib_vim.git"]
+	path = vim/bundle/tlib_vim.git
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/vim-addon-mw-utils.git"]
+	path = vim/bundle/vim-addon-mw-utils.git
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/bundle/snipmate-snippets.git"]
+	path = vim/bundle/snipmate-snippets.git
+	url = https://github.com/honza/snipmate-snippets.git
+[submodule "vim/bundle/vim-pydiction"]
+	path = vim/bundle/vim-pydiction
+	url = https://github.com/vim-scripts/Pydiction.git
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "vim/bundle/syntax-pig"]
+	path = vim/bundle/syntax-pig
+	url = https://github.com/vim-scripts/pig.vim.git
+[submodule "vim/bundle/syntax-python"]
+	path = vim/bundle/syntax-python
+	url = https://github.com/me-vlad/python-syntax.vim.git
+[submodule "vim/bundle/vim-pep8-textwidth"]
+	path = vim/bundle/vim-pep8-textwidth
+	url = https://github.com/jimf/vim-pep8-text-width.git
+[submodule "vim/bundle/snipmate-pig"]
+	path = vim/bundle/snipmate-pig
+	url = git://github.com/rverk/snipmate-pig.git

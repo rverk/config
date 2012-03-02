@@ -1,3 +1,6 @@
+" Load Pathogen
+call pathogen#infect()
+
 " Set colorscheme 
 set t_Co=256        " for proper terminal colors
 colorscheme mustang
@@ -8,7 +11,6 @@ set number          " show line numbers
 " Enable Plugins
 filetype plugin on
 filetype plugin indent on
-let g:pydiction_location='/home/rob/.vim/after/ftplugin/pydiction/complete-dict'
 
 "A tab is always 4 spaces
 set tabstop=4	
@@ -30,9 +32,6 @@ set hidden
 " Make the 'cw' and like commands put a $ at the end instead of just deleting
 " the text and replacing it
 "set cpoptions=ces$
-
-" Toggle fullscreen mode
-nmap <silent> <F3> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " Set the status line and force setting it 
 " set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
@@ -75,3 +74,10 @@ imap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 " Compile and view reStructuredText document
 command Rst :!rst2html % > /tmp/rstprev.html && firefox /tmp/rstprev.html
 nnoremap <C-p><C-r> :Rst<CR>
+
+" Execute file being edited with <Shift> + e:
+map <buffer> <C-S-e> :w<CR>:!python % <CR>
+
+" Show max width
+set colorcolumn=+1
+highlight ColorColumn ctermbg=black guibg=black
