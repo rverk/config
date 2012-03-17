@@ -56,9 +56,6 @@ set diffopt+=iwhite
 " Automatically read a file that has changed on disk
 set autoread
 
-" When a file has a header with a "#!", like #!/bin... chmod +x the file after write
-au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod u+x <afile> | endif | endif
-
 " Apache Pig Script
 augroup filetypedetect
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
@@ -79,5 +76,5 @@ nnoremap <C-p><C-r> :Rst<CR>
 map <buffer> <C-S-e> :w<CR>:!python % <CR>
 
 " Show max width
-set colorcolumn=+1
+set colorcolumn = +1
 highlight ColorColumn ctermbg=black guibg=black

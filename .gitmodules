@@ -31,3 +31,6 @@
 [submodule "vim/bundle/vim-snipmate"]
 	path = vim/bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/bundle/vim-protobuf"]
+	path = vim/bundle/vim-protobuf
+	url = https://github.com/jdevera/vim-protobuf-syntax
