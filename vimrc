@@ -78,3 +78,6 @@ map <buffer> <C-S-e> :w<CR>:!python % <CR>
 " Show max width
 set colorcolumn = +1
 highlight ColorColumn ctermbg=black guibg=black
+
+" Set proper fold method for python 
+au BufRead,BufNewFile *.py set foldmethod=indent
