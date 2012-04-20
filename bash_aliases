@@ -61,6 +61,3 @@ alias hls='fs -ls'
 
 # UnitTesting
 alias punit='python -m unittest discover -v'     #search for and run python unittests
-
-# Diary shorts
-alias prodia='vim ~/dev/diary/prof.txt'
