@@ -11,26 +11,36 @@ shopt -s cmdhist                                # save multi-line commands in hi
 # Video Reencoding                              #
 #################################################
 
+function qtfs() {
+
+    qt-faststart ${1} ${1}.tmp
+    mv -f ${1}.tmp ${1}
+}
+
 function vrecode() {
     hres=800
-    crf=33
+    crf=28
     
     case "$1" in
-        none|no)
-              ffmpeg -i ${2} -vf "scale=$hres:-1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
-              ;;
         cw|right)
-              ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
-              ;;
+            ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
+            outFile=${2}.mp4
+            ;;
         ccw|left)
-              ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=2" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
-              ;;
+            ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=2" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
+            outFile=${2}.mp4
+            ;;
         flip)
-              ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
-              ;;
-        *)
-            echo "Usage: vrecode <cw|ccw|flip> input.vid"    
+            ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
+            outFile=${2}.mp4
+            ;;
+        *)  # default no rotation
+            ffmpeg -i ${1} -vf "scale=$hres:-1" -threads 0 -crf $crf -vcodec libx264 ${1}.mp4 
+            outFile=${1}.mp4
+            ;;
       esac
+    
+      qtfs "$outFile"
 }
 
 
