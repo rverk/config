@@ -16,15 +16,17 @@ function vrecode() {
     crf=33
     
     case "$1" in
+        none|no)
+              ffmpeg -i ${2} -vf "scale=$hres:-1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
+              ;;
         cw|right)
-              ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1" -threads 0 -crf ${crf} -vcodec libx264 ${2}.mp4 
+              ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
               ;;
         ccw|left)
               ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=2" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
               ;;
         flip)
-              echo "knallen! $hres, $crf"
-              ffmpeg -i ${2} -vf "scale=${hres}:-1, transpose=1, transpose=1" -threads 0 -crf ${crf} -vcodec libx264 ${2}.mp4 
+              ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
               ;;
         *)
             echo "Usage: vrecode <cw|ccw|flip> input.vid"    

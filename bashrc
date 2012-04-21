@@ -102,7 +102,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # Set more restrictive umask: 
 # old: dir:775, file=664
 # new: dir=750, file=640 
-umask 027
+#umask 027
 
 # Allow non sudo gem installs
 export GEM_HOME=~/.gemhome
