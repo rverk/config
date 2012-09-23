@@ -13,6 +13,11 @@ ln -s `pwd`/bashrc $HOME/.bashrc
 ln -s `pwd`/bash_functions $HOME/.bash_functions
 ln -s `pwd`/bash_aliases $HOME/.bash_aliases
 ln -s `pwd`/bash_private $HOME/.bash_private
+ln -s `pwd`/gitconfig $HOME/.gitconfig
 
 # source the changes
 . ~/.bashrc
+
+# init and update submodules
+git submodule init && git submodule update
+if (( $? )) ; then echo init and update failed ; else echo Install complete; fi

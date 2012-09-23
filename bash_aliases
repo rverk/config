@@ -19,8 +19,6 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 ## Keeping things organized
-alias ls='ls --color=auto'
-alias ll='ls -ahlF'
 alias la='ls -A'
 alias cp='cp -iv'
 alias mv='mv -i'

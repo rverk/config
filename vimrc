@@ -5,6 +5,7 @@ call pathogen#infect()
 set t_Co=256        " for proper terminal colors
 colorscheme mustang
 
+syntax on
 set ignorecase      " ignore case when searching
 set number          " show line numbers 
 
@@ -81,3 +82,10 @@ highlight ColorColumn ctermbg=black guibg=black
 
 " Set proper fold method for python 
 au BufRead,BufNewFile *.py set foldmethod=indent
+
+" Map tab to Esc
+"nnoremap <Tab> <Esc>
+"vnoremap <Tab> <Esc>gV
+"onoremap <Tab> <Esc>
+"inoremap <Tab> <Esc>`^
+"inoremap <Leader><Tab> <Tab>
