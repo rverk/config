@@ -23,49 +23,32 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# Set appropriate ls alias
+case $(uname -s) in
+        Darwin|FreeBSD)
+                alias ls="ls -hFG"
+        ;;
+        Linux)
+                alias ls="ls --color=always -hF"
+        ;;
+        NetBSD|OpenBSD)
+                alias ls="ls -hF"
+        ;;
+esac
+
+ 
+# Set git autocompletion and PS1 integration
+if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+    . /usr/local/git/contrib/completion/git-completion.bash
+fi
+GIT_PS1_SHOWDIRTYSTATE=true
+
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-
-  fi
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    alias ls='ls -G'
-    alias ll='ls -ahlF'
-    #alias ll='ls -l -a'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-  
-    # Set git autocompletion and PS1 integration
-    if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-        . /usr/local/git/contrib/completion/git-completion.bash
-    fi
-    GIT_PS1_SHOWDIRTYSTATE=true
-
-    if [ -f /opt/local/etc/bash_completion ]; then
-        . /opt/local/etc/bash_completion
-    fi
-
-    PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\$\[\033[00m\] '
-    ;;
-*)
-    ;;
-esac
+# set git colorprompt
+PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\$\[\033[00m\] '
 
 
 # enable programmable completion features (you don't need to enable

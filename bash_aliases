@@ -2,6 +2,12 @@
 ### ALIASES ###
 ###############
 
+# colorized grep hits
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ll='ls -ahlF'
 alias cp='cp -iv'			    # cp askes for overwrite and is verbose
 alias mv='mv -iv'
 
