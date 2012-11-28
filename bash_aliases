@@ -65,3 +65,7 @@ alias hls='fs -ls'
 
 # UnitTesting
 alias punit='python -m unittest discover -v'     #search for and run python unittests
+
+# url en/decode
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
