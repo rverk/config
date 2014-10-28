@@ -47,6 +47,7 @@ if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
 
+
 # set git colorprompt
 PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\$\[\033[00m\] '
 
@@ -64,4 +65,6 @@ fi
 [ -f ~/.bash_private ] && . ~/.bash_private
 
 # Java Home
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"

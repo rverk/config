@@ -7,6 +7,23 @@ shopt -s checkwinsize				# update windows size on command
 shopt -s cdspell                                # this will correct minor spelling errors in a cd 
 shopt -s cmdhist                                # save multi-line commands in history as single line
 
+#####################
+# Network discovery #
+#####################
+
+# Scan for open ports on connected networks
+function openport() {
+
+    portname=${1:-80}
+
+    for iface in $(ifconfig | grep "inet " | awk '{print $2}' | grep -v "127.0." | grep -v "192.168.")
+    do
+        echo "Scanning: $iface, port $portname"
+        sudo nmap -v -sS "$iface"/24 -p ${portname} | grep "Discovered open"
+    done
+}
+
+
 #################################################
 # Video Reencoding                              #
 #################################################
@@ -18,7 +35,7 @@ function qtfs() {
 }
 
 function vrecode() {
-    hres=800
+    hres=1280
     crf=28
     
     case "$1" in
@@ -30,9 +47,15 @@ function vrecode() {
             ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=2" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
             outFile=${2}.mp4
             ;;
-        flip)
-            ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
-            outFile=${2}.mp4
+        flip|inv)
+            for file in ${2}; do
+                if [ -e "$file" ] ; then
+                    #ffmpeg -i ${2} -vf "scale=$hres:-1, transpose=1, transpose=1" -threads 0 -crf $crf -vcodec libx264 ${2}.mp4 
+                    #outFile=${2}.mp4
+                    ffmpeg -i $file -vf "scale=$hres:-1, transpose=1, transpose=1" -threads 0 -crf $crf -vcodec libx264 $file.mp4 
+                    outFile=$file.mp4
+                fi
+            done
             ;;
         *)  # default no rotation
             ffmpeg -i ${1} -vf "scale=$hres:-1" -threads 0 -crf $crf -vcodec libx264 ${1}.mp4 

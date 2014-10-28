@@ -69,3 +69,6 @@ alias punit='python -m unittest discover -v'     #search for and run python unit
 # url en/decode
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
+# osx zcat appends .Z to all files
+alias zcat='gunzip -c'

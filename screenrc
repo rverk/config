@@ -1,0 +1,40 @@
+# some default settings
+startup_message off
+vbell off
+msgwait 1
+defutf8 on
+compacthist on
+ 
+# Monitor windows
+defmonitor on
+activity ""
+ 
+# Turns off alternate screen switching in xterms,
+# so that text in screen will go into the xterm's scrollback buffer:
+termcapinfo xterm* ti@:te@
+altscreen on
+ 
+# Enable 256 color terminal
+#attrcolor b ".I"
+#termcapinfo xterm 'Co#256:AB=E[48;5;%dm:AF=E[38;5;%dm'
+defbce "on"
+ 
+# Log 10000 lines
+defscrollback 50000
+ 
+backtick 2 60 60 echo $USERNAME
+ 
+screen 0
+ 
+shelltitle '. |bash'
+hardstatus alwayslastline '%{= .y}.oO(%{= .b}%2`@%H%{= .y})Oo. %{= .b}%{+} %= %-w %{= .yb} %n:[%t] %{= db} %+w %{= .y}time: [%c]'
+ 
+bindkey -k k2 screen                                    # F2  | Create new window
+bindkey -k k3 prev                                      # F3  | Previous Window
+bindkey -k k4 next                                      # F4  | Next Window
+register r "^a:source $HOME/.screenrc^M"                #     | Goes with F5 definition
+bindkey -k k5 process r                                 # F5  | Reload profile
+bindkey -k k6 detach                                    # F6  | Detach from this session
+bindkey -k k7 copy                                      # F7  | Enter copy/scrollback mode
+register t "^aA^aa^k^h"                                 #     | Goes with the F8 definition
+bindkey -k k8 process t                                 # F8  | Re-title a window

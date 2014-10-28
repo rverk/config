@@ -14,6 +14,7 @@ ln -s `pwd`/bash_functions $HOME/.bash_functions
 ln -s `pwd`/bash_aliases $HOME/.bash_aliases
 ln -s `pwd`/bash_private $HOME/.bash_private
 ln -s `pwd`/gitconfig $HOME/.gitconfig
+ln -s `pwd`/screenrc $HOME/.screenrc
 
 # source the changes
 . ~/.bashrc
