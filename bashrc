@@ -64,7 +64,5 @@ fi
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -f ~/.bash_private ] && . ~/.bash_private
 
-# Java Home
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
